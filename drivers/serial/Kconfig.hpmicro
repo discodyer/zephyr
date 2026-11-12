@@ -10,6 +10,9 @@ config UART_HPMICRO
 	depends on HAS_HPMSDK_UART
 	select PINCTRL
 	select SERIAL_HAS_DRIVER
+	select SERIAL_SUPPORT_INTERRUPT
 	select USE_HPMSDK_UART
 	help
-	  Enable the polled UART driver for HPMicro UART controllers.
+	  Enable the UART driver for HPMicro UART controllers. Polling is
+	  always available, and interrupt-driven operation can be enabled
+	  with CONFIG_UART_INTERRUPT_DRIVEN.
