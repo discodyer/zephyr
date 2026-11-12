@@ -1,4 +1,4 @@
-# Copyright (C) 2026 Cody Gu <gujiaqi@iscas.ac.cn>
+# Copyright (c) 2026 Cody Gu <gujiaqi@iscas.ac.cn>
 # SPDX-License-Identifier: Apache-2.0
 
 identifier: hpm5300evk
@@ -10,6 +10,7 @@ toolchain:
 ram: 288
 flash: 1024
 supported:
+  - dma
   - gpio
   - pinctrl
   - uart

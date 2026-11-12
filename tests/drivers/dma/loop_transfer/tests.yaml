@@ -8,6 +8,14 @@ tests:
       - native_sim
       - native_sim/native/64
     filter: dt_nodelabel_enabled("tst_dma0")
+  drivers.dma.hpmicro.loop_transfer:
+    depends_on: dma
+    tags:
+      - drivers
+      - dma
+    platform_allow:
+      - hpm5300evk/hpm5361
+    filter: dt_nodelabel_enabled("tst_dma0")
   drivers.dma.ifx_axidmac.loop_transfer:
     depends_on: dma
     tags:

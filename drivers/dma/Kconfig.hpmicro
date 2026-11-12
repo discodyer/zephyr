@@ -1,0 +1,19 @@
+# Copyright (c) 2026 Cody Gu <gujiaqi@iscas.ac.cn>
+# SPDX-License-Identifier: Apache-2.0
+
+DT_COMPAT_HPM_DMA := hpmicro,hpm-dma
+
+config DMA_HPMICRO
+	bool "HPMicro DMAV2 and DMAMUX driver"
+	default y
+	depends on DMA
+	depends on !DMA_64BIT
+	depends on CLOCK_CONTROL
+	depends on DT_HAS_HPMICRO_HPM_DMA_ENABLED
+	depends on HAS_HPMSDK_DMAV2
+	depends on HAS_HPMSDK_DMAMUX
+	select USE_HPMSDK_DMAV2
+	help
+	  Enable the HPMicro DMAV2 controller with its channel-coupled DMAMUX.
+	  Memory-to-memory, memory-to-peripheral and peripheral-to-memory
+	  transfers are supported.

@@ -1,0 +1,48 @@
+# Copyright (c) 2026 Cody Gu <gujiaqi@iscas.ac.cn>
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  HPMicro DMAV2 controller with channel-coupled DMAMUX.
+
+  Each DMA channel has a matching DMAMUX channel. Client DMA specifiers use
+  two cells: the DMA channel and the DMAMUX request source. The request source
+  is ignored for memory-to-memory transfers.
+
+compatible: "hpmicro,hpm-dma"
+
+include: dma-controller.yaml
+
+properties:
+  reg:
+    required: true
+    description: |
+      DMAV2 register block followed by the DMAMUX register block.
+
+  reg-names:
+    required: true
+
+  interrupts:
+    required: true
+
+  clocks:
+    required: true
+    description: |
+      Clock specifier with the HPM clock resource, source selector and
+      divider, respectively.
+
+  clock-names:
+    required: true
+
+  dma-channels:
+    required: true
+
+  dma-requests:
+    required: true
+    description: Number of valid DMAMUX request source identifiers.
+
+  "#dma-cells":
+    const: 2
+
+dma-cells:
+  - channel
+  - request

@@ -201,6 +201,21 @@
 			reg = <0xf4118000 0x4000>;
 			status = "okay";
 		};
+
+		hdma: dma@f00c8000 {
+			compatible = "hpmicro,hpm-dma";
+			reg = <0xf00c8000 0x4000>,
+			      <0xf00c4000 0x4000>;
+			reg-names = "dma", "dmamux";
+			interrupts = <34 1>;
+			interrupt-parent = <&plic>;
+			clocks = <&clk CLOCK_HDMA CLK_SRC_OSC24M 1>;
+			clock-names = "dma";
+			dma-channels = <32>;
+			dma-requests = <66>;
+			#dma-cells = <2>;
+			status = "disabled";
+		};
 	};
 };
 
